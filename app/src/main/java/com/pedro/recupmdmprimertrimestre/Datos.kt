@@ -19,5 +19,5 @@ val diccionarioPalabras = mapOf(
 enum class EstadoJuego {
     GANADO,
     PERDIDO,
-    EN_PROGRESO
+    ADIVINANDO
 }
