@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,6 +18,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -59,7 +61,8 @@ fun IU(viewModel: ViewModel) {
                 adivinandoUsuario = "" // Limpia el campo de texto después de enviar
             },
             enabled = estadoJuego == EstadoJuego.ADIVINANDO,
-            modifier = Modifier.padding(8.dp)
+            modifier = Modifier.padding(8.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
         ) {
             Text("Enviar")
         }
@@ -85,7 +88,8 @@ fun IU(viewModel: ViewModel) {
         // Botón para reiniciar el juego
         Button(
             onClick = { viewModel.reiniciarJuego() },
-            modifier = Modifier.padding(8.dp)
+            modifier = Modifier.padding(8.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
         ) {
             Text("Reiniciar Juego")
         }
