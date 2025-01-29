@@ -21,13 +21,21 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+/**
+ * Función composable que representa la interfaz de usuario del juego.
+ *
+ * @param viewModel El ViewModel que contiene la lógica y el estado del juego.
+ */
 @Composable
 fun IU(viewModel: ViewModel) {
+    // Observa el estado actual del juego desde el ViewModel
     val estado by viewModel.estado.observeAsState()
     val estadoJuego by viewModel.estadoJuego.observeAsState()
 
+    // Variable de estado para mantener la adivinanza del usuario
     var adivinandoUsuario by remember { mutableStateOf("") }
 
+    // Diseño principal en columna para la interfaz de usuario
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -42,7 +50,7 @@ fun IU(viewModel: ViewModel) {
             modifier = Modifier.padding(16.dp)
         )
 
-        // Campo de texto para escribir la palabra
+        // Campo de texto para que el usuario introduzca su adivinanza
         OutlinedTextField(
             value = adivinandoUsuario,
             onValueChange = { adivinandoUsuario = it },
@@ -53,11 +61,11 @@ fun IU(viewModel: ViewModel) {
                 .padding(8.dp)
         )
 
-        // Botón para enviar la palabra
+        // Botón para enviar la palabra del usuario
         Button(
             onClick = {
                 viewModel.hacerAdivinanza(adivinandoUsuario)
-                adivinandoUsuario = "" // Limpia el campo de texto después de enviar
+                adivinandoUsuario = "" // Pone el texto vacío al hacer click
             },
             enabled = estadoJuego == EstadoJuego.ADIVINANDO,
             modifier = Modifier.padding(8.dp),
@@ -66,14 +74,14 @@ fun IU(viewModel: ViewModel) {
             Text("Enviar")
         }
 
-        // Mostrar intentos restantes
+        // Texto para mostrar los intentos restantes
         Text(
             text = "Intentos restantes: ${estado?.intentos ?: 0}",
             fontSize = 16.sp,
             modifier = Modifier.padding(8.dp)
         )
 
-        // Texto para mostrar el resultado
+        // Texto para mostrar el resultado del juego
         Text(
             text = when (estadoJuego) {
                 EstadoJuego.GANADO -> "¡Has ganado!"
@@ -84,7 +92,7 @@ fun IU(viewModel: ViewModel) {
             modifier = Modifier.padding(8.dp)
         )
 
-        // Botón para reiniciar el juego
+        // Botón que reinicia el juego con los valores por defecto
         Button(
             onClick = { viewModel.reiniciarJuego() },
             modifier = Modifier.padding(8.dp),

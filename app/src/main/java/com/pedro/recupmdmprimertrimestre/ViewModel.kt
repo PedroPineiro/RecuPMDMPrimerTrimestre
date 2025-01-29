@@ -4,6 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
+/**
+ * ViewModel que contiene la lógica y el estado del juego.
+ */
 class ViewModel : ViewModel() {
 
     private val _estado = MutableLiveData<Datos>()
@@ -21,6 +24,10 @@ class ViewModel : ViewModel() {
         iniciarJuego()
     }
 
+    /**
+     * Inicia un nuevo juego, seleccionando una palabra y sus pistas aleatoriamente.
+     * También restablece los intentos y el estado del juego.
+     */
     fun iniciarJuego() {
         val estadoActual = _estado.value
 
@@ -44,6 +51,9 @@ class ViewModel : ViewModel() {
         _estadoJuego.value = EstadoJuego.ADIVINANDO
     }
 
+    /**
+     * Reinicia el juego restableciendo los valores por defecto.
+     */
     fun reiniciarJuego() {
         intentosMax = 3
 
@@ -56,6 +66,11 @@ class ViewModel : ViewModel() {
         iniciarJuego()
     }
 
+    /**
+     * Procesa la adivinanza del usuario y actualiza el estado del juego en consecuencia.
+     *
+     * @param adivinanza La palabra que el usuario ha adivinado.
+     */
     fun hacerAdivinanza(adivinanza: String) {
         val estadoActual = _estado.value ?: return
         if (adivinanza.equals(palabraActual, ignoreCase = true)) {
@@ -76,6 +91,11 @@ class ViewModel : ViewModel() {
         }
     }
 
+    /**
+     * Obtiene la siguiente pista de la lista de pistas.
+     *
+     * @return La siguiente pista.
+     */
     private fun obtenerPista(): String {
         numPistas = (numPistas + 1) % pistas.size
         return pistas[numPistas]
