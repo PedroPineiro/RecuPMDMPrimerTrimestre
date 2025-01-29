@@ -17,6 +17,7 @@ Si en algún intento el jugador acierta, gana y el juego termina
 
 ## Solución
 
-Lo primero que haremos es crear las clases de la estructura MVVM, siendo estas la MainActivity por defecto, el view, siendo esto lo visible en la aplicacion con todas las composables (UI); la ViewModel, donde está toda la lógica del programa (ViewModel); y el model, donde están todos los datos que hacen funcionar el programa almacenados (Datos)
+Lo primero que hago es crear las clases de la estructura MVVM, siendo estas la MainActivity por defecto, el view, siendo esto lo visible en la aplicacion con todas las composables (UI); la ViewModel, donde está toda la lógica del programa (ViewModel); y el model, donde están todos los datos que hacen funcionar el programa almacenados (Datos)
 
+Empiezo con la clase Datos, en la que implemento un Singleton utilizando un object para poner las variables que usaré. Además utilizo un enum class para definir los estados del juego (EstadoJuego)
  
