@@ -5,7 +5,6 @@ object Datos {
     var pista: String = ""
     var intentos: Int = 0
     var ganar: Boolean = false
-    var rondas: Int = 0
 }
 
 val diccionarioPalabras = mapOf(

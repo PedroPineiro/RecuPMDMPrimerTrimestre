@@ -24,12 +24,6 @@ class ViewModel : ViewModel() {
     fun iniciarJuego() {
         val estadoActual = _estado.value
 
-        val rondasRestauradas = if (estadoActual?.ganar == true) {
-            estadoActual.rondas
-        } else {
-            0
-        }
-
         if (estadoActual?.ganar == true) {
             intentosMax = maxOf(1, intentosMax - 1)
         } else if (estadoActual?.intentos == 0) {
@@ -45,7 +39,6 @@ class ViewModel : ViewModel() {
         Datos.pista = pistas[numPistas]
         Datos.intentos = intentosMax
         Datos.ganar = false
-        Datos.rondas = rondasRestauradas
 
         _estado.value = Datos
         _estadoJuego.value = EstadoJuego.ADIVINANDO
@@ -58,7 +51,6 @@ class ViewModel : ViewModel() {
         Datos.pista = ""
         Datos.intentos = 3
         Datos.ganar = false
-        Datos.rondas = 0
 
         _estado.value = Datos
         iniciarJuego()
@@ -68,7 +60,6 @@ class ViewModel : ViewModel() {
         val estadoActual = _estado.value ?: return
         if (adivinanza.equals(palabraActual, ignoreCase = true)) {
             Datos.ganar = true
-            Datos.rondas = estadoActual.rondas + 1
             _estado.value = Datos
             _estadoJuego.value = EstadoJuego.GANADO
         } else {
