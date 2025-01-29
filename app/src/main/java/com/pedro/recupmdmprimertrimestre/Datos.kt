@@ -10,9 +10,9 @@ object Datos {
 val diccionarioPalabras = mapOf(
     "dinero" to listOf("plata", "capital", "moneda", "riqueza", "fortuna"),
     "guerra" to listOf("conflicto", "batalla", "combate", "lucha", "hostilidades"),
-    "viaje" to listOf("travesía", "excursión", "aventura", "peregrinaje", "ruta"),
-    "odio" to listOf("rencor", "ira", "resentimiento", "antipatía", "aversión"),
-    "miedo" to listOf("temor", "pavor", "pánico", "terror", "angustia"),
+    "ciudad" to listOf("metrópolis", "urbe", "villa", "capital", "localidad"),
+    "pelota" to listOf("balón", "esfera", "bola", "cuero", "esférico"),
+    "circuito" to listOf("trayecto", "recorrido", "ruta", "vuelta", "circuitería"),
 )
 
 enum class EstadoJuego {
