@@ -58,6 +58,7 @@ fun IU(viewModel: ViewModel) {
                 viewModel.hacerAdivinanza(adivinandoUsuario)
                 adivinandoUsuario = "" // Limpia el campo de texto después de enviar
             },
+            enabled = estadoJuego == EstadoJuego.ADIVINANDO,
             modifier = Modifier.padding(8.dp)
         ) {
             Text("Enviar")
