@@ -39,3 +39,7 @@ En la UI, creo una función composable que observa los cambios en el ViewModel y
 Incluyo un campo de texto para que el usuario introduzca su adivinanza, un botón para enviar la adivinanza, y textos para mostrar la pista, los intentos restantes y el resultado del juego. También incluyo un botón para reiniciar el juego.
 
 Tambien hago que el boton de adivinar solo aparezca cuando el estado sea ADIVINANDO para evitar bugs
+
+### MainActivity
+
+Y finalmente, en la MainActivity, inicializo el ViewModel y configuro la interfaz de usuario.
