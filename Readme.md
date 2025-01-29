@@ -30,7 +30,7 @@ Seguimos con la ViewModel, donde utilizo LiveData para observar los cambios en e
 
 En cambio en estadoJuego mantengo el estado del juego como tal, si ha Ganado Perdido o Adivinando, y es un MutableLiveData de tipo EstadoJuego.
 
-También implemento métodos para iniciar un nuevo juego, reiniciar el juego, obtener pistas y hacer una adivinanza. Estos métodos actualizan los LiveData correspondientes para reflejar los cambios en el estado del juego.
+También implemento métodos para iniciar un nuevo juego, reiniciar el juego (que simplemente devuelde a los valores por defecto e inicia el juego otra vez), obtener pistas y hacer una adivinanza. Estos métodos actualizan los LiveData correspondientes para reflejar los cambios en el estado del juego.
 
 ### UI (view)
 
